@@ -8,7 +8,7 @@ float v,p=3.14;
 printf("le reyon r : ");
 scanf("%f",&r);
 
-v =(4/3) * p * pow(r,3);
+v =(4/3) * p *(r*r*r);
 printf("le volume de de sphere : %.2f ",v);
 
 
