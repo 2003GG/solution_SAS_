@@ -1,51 +1,41 @@
 #include <stdio.h>
 
 int main() {
-    int T,j,K[5],L[5],S[10]={1,2,3,4,5,6,7,8,9};
-    int i,count[10],hrep[10];
+    int T, j, K[10];
+    int i;
+    int rep[10] = {0}; 
+    int S[10] = {0,1,2,3,4,5,6,7,8,9};
     
-//     pour utiliser l'expression (int) (sizeof(a)
-// / sizeof(a[0]))
-  printf("Entrez un nombre : ");
-  scanf("%d",&T);
+    printf("Entrez un nombre de 10 chiffre: ");
+    scanf("%d", &T);
 
-  int size=(sizeof(K)/sizeof(K[0]));
- 
-  for(i=0; i < size; i++){
    
-    
-    
+    for (i = 0; i < 10; i++) {
         K[i] = T % 10;
-        T = T /10;
+        T = T / 10;
+    }
+
    
-    
-    //  printf(" k= %d\n",K[i]);
-     
-    }    
-    for(i=0;i<size;i++){
-        for(j=i+1;j<size;j++){
-            if(K[i]==K[j]){
-                L[i]=K[i];
-                 count[i]=count[i]+1;
+    for (i = 9; i >= 0; i--) {
+        for (j = 0; j < 10; j++) {
+            if (K[i] == S[j]) {
+                rep[j]++;
             }
-         
         }
-       
     }
-    for(i=0;i<size;i++){
-        for(j=0;j<10;j++){
 
-            if(L[i]==S[j]){
-            hrep[i]=hrep[i]+1;
-            }
-            printf(" S = %d\t\n",S[j]);
-            
-        }
-      printf(" hrp = %d\n",hrep);
+
+    printf("Chiffre    : ");
+    for (i = 0; i < 10; i++) {
+        printf("%d\t", S[i]);
     }
+
+    printf("\nRepetition : ");
+    for (i = 0; i < 10; i++) {
+        printf("%d\t", rep[i]);
+    }
+
     printf("\n");
-    
-
 
     return 0;
 }
